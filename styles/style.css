@@ -56,7 +56,7 @@
   max-inline-size: 700px;
   background-image: var(--bg-page-gradient);
   background-attachment: fixed;
-  font-variation-settings: "wght" 400; 
+  font-variation-settings: "wght" 400;
 }
 
 @supports (font-variation-settings: normal) {
@@ -117,7 +117,7 @@
   mix-blend-mode: multiply;
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #FFF)) {
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
   .card__img::after {
     -webkit-text-stroke: 1px #fff;
     text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff;
@@ -255,7 +255,7 @@
 }
 
 .top__food {
-  filter: opacity(.9);
+  filter: opacity(0.9);
 }
 
 .end {
