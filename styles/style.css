@@ -56,8 +56,13 @@
   max-inline-size: 700px;
   background-image: var(--bg-page-gradient);
   background-attachment: fixed;
-  font-variation-settings: "wgth" 400; 
+  font-variation-settings: "wght" 400; 
+}
 
+@supports (font-variation-settings: normal) {
+  .pages {
+    font-weight: 400;
+  }
 }
 
 .header {
