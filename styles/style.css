@@ -220,3 +220,37 @@
     inline-size: 28px;
   }
 }
+
+/* Фильтры */
+
+.men__smile {
+  filter: blur(1px);
+}
+
+.men__tab {
+  filter: brightness(90%);
+}
+
+.long__nose {
+  filter: contrast(120%);
+}
+
+.training {
+  filter: contrast(90%);
+}
+
+.friend {
+  filter: brightness(150%);
+}
+
+.local__mem {
+  filter: hue-rotate(260deg);
+}
+
+.top__food {
+  filter: opacity(.9);
+}
+
+.end {
+  filter: contrast(1.1);
+}
