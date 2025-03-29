@@ -56,6 +56,8 @@
   max-inline-size: 700px;
   background-image: var(--bg-page-gradient);
   background-attachment: fixed;
+  font-variation-settings: "wgth" 400; 
+
 }
 
 .header {
@@ -110,7 +112,7 @@
   mix-blend-mode: multiply;
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #FFF;)) {
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #FFF)) {
   .card__img::after {
     -webkit-text-stroke: 1px #fff;
     text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff;
@@ -224,7 +226,7 @@
 /* Фильтры */
 
 .men__smile {
-  filter: blur(1px);
+  filter: blur(1px) contrast(90%) saturate(3);
 }
 
 .men__tab {
