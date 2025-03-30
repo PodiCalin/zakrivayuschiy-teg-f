@@ -29,9 +29,9 @@
 .card__title {
   font-family: "Inter", sans-serif;
   font-size: 18px;
-  font-weight: 700;
-  margin-block: 5px;
-  margin-inline: 10px;
+  font-variation-settings: "wght" 700;
+  margin-block: 6px;
+  margin-inline: 11px;
 }
 
 .card__text {
@@ -44,7 +44,9 @@
   font-family: "PressStart2P", sans-serif;
   font-size: 14px;
   line-height: 90%;
-  font-weight: 400;
+  color: #fff;
+  mix-blend-mode: difference;
+  font-variation-settings: "wght" 400;
 }
 
 /* Страница */
@@ -60,7 +62,7 @@
 }
 
 @supports (font-variation-settings: normal) {
-  .pages {
+  .page {
     font-weight: 400;
   }
 }
@@ -80,15 +82,11 @@
   margin-block-start: 2px;
 }
 
-.footer {
-  justify-self: center;
-  margin-block: 52px 102px;
-}
-
 /* Карточки */
+
 .section__article {
   display: grid;
-  gap: 54px;
+  gap: 52px;
 }
 
 .card {
@@ -99,32 +97,42 @@
 
 .card__img {
   inline-size: 100%;
-  block-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
-  outline: 2px solid #000;
-  position: relative;
+  block-size: 100%;
 }
 
-.card__img::after {
+.container__img {
+  position: relative;
+  block-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  outline: 2px solid #000;
+}
+
+.container__img::after {
   position: absolute;
   content: "</HTML>";
   font-family: "PressStart2P", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #000;
+  z-index: 1;
+  opacity: 0.5;
   inset-block-start: 25px;
   inset-inline-end: 25px;
   -webkit-text-stroke: 1px #fff;
-  mix-blend-mode: multiply;
+  mix-blend-mode: hard-light;
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
-  .card__img::after {
+@supports (
+  (text-stroke: 1px #fff) or
+    (-webkit-text-stroke: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff)
+) {
+  .container__img::after {
     -webkit-text-stroke: 1px #fff;
-    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff;
+    text-shadow: none;
   }
 }
 
 .card__container-text {
+  justify-self: center;
   display: grid;
   gap: 26px;
   margin-block-start: 25px;
@@ -160,9 +168,13 @@
 
 .floppy__svg {
   inline-size: 22px;
+  fill: #fff;
+  mix-blend-mode: difference;
 }
 
 .footer__save-button {
+  margin-inline: auto;
+  margin-block-start: 51px;
   display: flex;
   border: 2px solid #000;
   gap: 8px;
@@ -176,9 +188,8 @@
 .module__window {
   border: 2px solid #000;
   background-color: #fff;
-  padding-bottom: 30px;
-  padding-inline: clamp(2.625rem, 2.8891rem + -1.1268vw, 1.875rem);
-  margin-inline: auto;
+  padding-bottom: 32px;
+  padding-inline: clamp(2.25rem, 2.4701rem + -0.939vw, 1.625rem);
 }
 
 .module__window:focus {
@@ -201,11 +212,13 @@
 }
 
 .module__title_text {
-  font-family: "PressStart2P";
+  font-family: "PressStart2P", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 150%;
   text-transform: uppercase;
+  inline-size: clamp(12rem, 11.0757rem + 3.9437vw, 14.625rem);
+  block-size: 63px;
 }
 
 .module__button {
@@ -217,6 +230,10 @@
 }
 
 @media (width <= 375px) {
+  .module__window {
+    padding-inline: 36px;
+  }
+
   .footer__save-button {
     display: grid;
     justify-items: center;
@@ -230,34 +247,34 @@
 
 /* Фильтры */
 
-.men__smile {
+.men__smile-bcs {
   filter: blur(1px) contrast(90%) saturate(3);
 }
 
-.men__tab {
+.men__tab-brightness {
   filter: brightness(90%);
 }
 
-.long__nose {
+.long__nose-contrast {
   filter: contrast(120%);
 }
 
-.training {
+.training-contrast {
   filter: contrast(90%);
 }
 
-.friend {
+.friend-brightness {
   filter: brightness(150%);
 }
 
-.local__mem {
+.local__mem-hue-rotate {
   filter: hue-rotate(260deg);
 }
 
-.top__food {
+.top__food-opacity {
   filter: opacity(0.9);
 }
 
-.end {
+.end-contrast {
   filter: contrast(1.1);
 }

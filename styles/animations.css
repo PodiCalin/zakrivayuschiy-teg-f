@@ -10,54 +10,35 @@
 
 */
 
-.card__like-button,
-.footer__save-button,
-.module__button {
+button {
   position: relative;
   overflow: hidden;
-}
-
-.card__like-button:focus,
-.footer__save-button:focus,
-.module__button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 #000;
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button::before,
-.footer__save-button::before,
-.module__button::before {
+button:not(.card__icon-button):focus {
+  outline: none;
+  box-shadow: 2px 2px 0 #000;
+  transition: box-shadow 0.3s ease;
+  transition-timing-function: linear;
+}
+
+button:focus-visible {
+  outline: 2px solid #000;
+}
+
+button:not(.card__icon-button)::before {
   content: "";
   position: absolute;
   inset: 0;
   background-color: #000;
   transition: transform 0.5s ease-in-out;
+  transition-timing-function: linear;
   transform: translateX(-100%);
 }
 
-.card__like-button:hover::before,
-.footer__save-button:hover::before,
-.module__button:hover::before {
+button:hover::before {
   transform: translateX(0);
-  z-index: 1;
-}
-
-:is(button:hover) .button__text,
-.floppy__svg {
-  position: relative;
-  color: #fff;
-  z-index: 1;
-  mix-blend-mode: difference;
-  fill: #fff;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  outline: 2px solid #000;
 }
 
 .like-icon:hover .core {
@@ -69,17 +50,20 @@
   fill: var(--opacity);
   transition-property: fill;
   transition-delay: 0.12s;
+  transition-timing-function: linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--contour-color);
   transition: fill 0.3s;
   transition-delay: 0.05s;
+  transition-timing-function: linear;
 }
 
 .main-body {
   fill: var(--opacity);
   transition: fill 0.3s;
+  transition-timing-function: linear;
 }
 
 .sparks {
@@ -94,21 +78,27 @@
 .like-icon.is-liked .contour {
   fill: var(--animation-fill-color);
   transition: fill 0.3s ease-in;
+  transition-timing-function: linear;
 }
 
 .like-icon.is-liked .sparks {
   animation: appearance__sparks 0.3s 0.3s ease-in;
+  animation-timing-function: linear;
 }
 
 /* А почему не через класс .heart ? А потому что он не работает...
 Slime love of the time я разочарован */
 
-.like-icon.is-liked .main-body,
 .like-icon.is-liked .core,
+.like-icon.is-liked .main-body,
 .like-icon.is-liked .contour {
+  transform-origin: center;
   fill: var(--animation-fill-color);
+  animation-timing-function: linear;
   animation: increase__heart 0.3s 0.1s ease-in;
 }
+
+/* Через селектор  .like-icon.is-liked  тоже не работает , только так */
 
 @keyframes increase__heart {
   from {
