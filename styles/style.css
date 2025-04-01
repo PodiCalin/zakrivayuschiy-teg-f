@@ -15,6 +15,7 @@
   font-family: "PressStart2P", sans-serif;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
+  line-height: 100%;
   inline-size: fit-content;
 }
 
@@ -22,6 +23,7 @@
   font-family: "PressStart2P", sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
+  line-height: 100%;
   text-transform: uppercase;
   inline-size: fit-content;
 }
@@ -31,12 +33,14 @@
   font-size: 18px;
   font-variation-settings: "wght" 700;
   margin-block: 6px;
+  line-height: 100%;
   margin-inline: 11px;
 }
 
 .card__text {
   font-family: "Inter", sans-serif;
   font-size: 18px;
+  line-height: 21px;
   font-weight: 400;
 }
 
@@ -86,7 +90,7 @@
 
 .section__article {
   display: grid;
-  gap: 52px;
+  gap: 55px;
 }
 
 .card {
@@ -117,17 +121,16 @@
   opacity: 0.5;
   inset-block-start: 25px;
   inset-inline-end: 25px;
-  -webkit-text-stroke: 1px #fff;
   mix-blend-mode: hard-light;
+  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff
 }
 
-@supports (
-  (text-stroke: 1px #fff) or
-    (-webkit-text-stroke: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff)
-) {
+@supports (text-stroke: 1px #fff) {
   .container__img::after {
     -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
     text-shadow: none;
+    
   }
 }
 
@@ -175,6 +178,7 @@
 .footer__save-button {
   margin-inline: auto;
   margin-block-start: 51px;
+  margin-block-end: 103px;
   display: flex;
   border: 2px solid #000;
   gap: 8px;
@@ -185,11 +189,11 @@
 
 /* Модульное окно */
 
-.module__window {
+.module__window[open] {
   border: 2px solid #000;
   background-color: #fff;
   padding-bottom: 32px;
-  padding-inline: clamp(2.25rem, 2.4701rem + -0.939vw, 1.625rem);
+  padding-inline: 27px;
 }
 
 .module__window:focus {
@@ -230,8 +234,9 @@
 }
 
 @media (width <= 375px) {
-  .module__window {
-    padding-inline: 36px;
+
+  .module__window[open] {
+    padding-inline: 37px;
   }
 
   .footer__save-button {
