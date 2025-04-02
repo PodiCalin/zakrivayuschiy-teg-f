@@ -122,7 +122,7 @@
   text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff;
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)){
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
   .container__img::after {
     -webkit-text-stroke: 1px #fff;
     text-stroke: 1px #fff;
