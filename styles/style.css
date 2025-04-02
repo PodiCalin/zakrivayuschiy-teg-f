@@ -15,7 +15,6 @@
   font-family: "PressStart2P", sans-serif;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
-  line-height: 100%;
   inline-size: fit-content;
 }
 
@@ -23,7 +22,6 @@
   font-family: "PressStart2P", sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
-  line-height: 100%;
   text-transform: uppercase;
   inline-size: fit-content;
 }
@@ -33,7 +31,6 @@
   font-size: 18px;
   font-variation-settings: "wght" 700;
   margin-block: 6px;
-  line-height: 100%;
   margin-inline: 11px;
 }
 
@@ -50,7 +47,7 @@
   line-height: 90%;
   color: #fff;
   mix-blend-mode: difference;
-  font-variation-settings: "wght" 400;
+  font-weight: 400;
 }
 
 /* Страница */
@@ -122,10 +119,10 @@
   inset-block-start: 25px;
   inset-inline-end: 25px;
   mix-blend-mode: hard-light;
-  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff
+  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff;
 }
 
-@supports (text-stroke: 1px #fff) {
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)){
   .container__img::after {
     -webkit-text-stroke: 1px #fff;
     text-stroke: 1px #fff;
@@ -190,10 +187,11 @@
 /* Модульное окно */
 
 .module__window[open] {
+  opacity: .3;
   border: 2px solid #000;
   background-color: #fff;
-  padding-bottom: 32px;
   padding-inline: 27px;
+  padding-block: 30px;
 }
 
 .module__window:focus {
@@ -221,20 +219,19 @@
   font-weight: 400;
   line-height: 150%;
   text-transform: uppercase;
-  inline-size: clamp(12rem, 11.0757rem + 3.9437vw, 14.625rem);
-  block-size: 63px;
+  inline-size: 234px;
 }
 
 .module__button {
-  margin-block-start: 30px;
   border: 2px solid #000;
-  padding-block: 12px;
+  margin-block-start: 30px;
+  padding-block-start: 12px;
+  padding-block-end: 4px;
   padding-inline: clamp(7.125rem, 6.7289rem + 1.6901vw, 8.25rem);
   background-color: #fff;
 }
 
 @media (width <= 375px) {
-
   .module__window[open] {
     padding-inline: 37px;
   }
